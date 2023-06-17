@@ -43,7 +43,7 @@
         #circle {
             position: absolute;
             top: 180px;
-            left: 180px;
+            left: 10px;
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -53,11 +53,12 @@
         #arrow {
             position: absolute;
             top: 195px;
-            left: 10px;
+            right: 10px;
             width: 50px;
             height: 15px;
             display: flex;
             color: rgba(14, 14, 14, 0.338);
+            rotate: 180deg;
         }
 
         #arrow:before {
@@ -103,15 +104,15 @@
 
             let position = 10; // initial position of arrow
             let interval = setInterval(() => {
-                // move arrow to the right by 2px every 10ms until it reaches 130px / the border of the circle
+                // move arrow to the right by 2px every 5ms until it reaches the border of the circle
                 position += 2;
-                arrow.style.left = position + "px";
+                arrow.style.right = position + "px";
 
-                if (position >= 130 && position <= 220) {
+                if (position >= 300) {
                     clearInterval(interval);
                     circle.style.backgroundColor = getRandomColor();
                 }
-            }, 10);
+            }, 5);
         }
 
         function reset() {
